@@ -1,0 +1,13 @@
+{
+  "name": "DIPPERGUARD - Smart Headlight Safety",
+  "short_name": "DIPPERGUARD",
+  "description": "Student project showcase and automatic dipper simulation.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07101c",
+  "theme_color": "#08111f",
+  "icons": [
+    {"src": "./assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}

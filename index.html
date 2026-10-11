@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="DIPPERGUARD — a student-built automatic headlight dipper project with a digital simulation and project showcase.">
+  <title>DIPPERGUARD | Smart Headlight Safety</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <style>
+    :root{--bg:#07101c;--panel:#0d1b2b;--panel2:#102238;--line:#23384e;--text:#eff7ff;--muted:#9eb2c8;--cyan:#67e8f9;--blue:#60a5fa;--green:#5eead4;--amber:#fbbf24}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#123553 0,transparent 40%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid #1a2b3e}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.11em}.logo{width:38px;height:38px;border:1px solid #2d6079;border-radius:12px;display:grid;place-items:center;background:#102c40;color:var(--cyan)}.navlinks{display:flex;gap:20px;flex-wrap:wrap;font-size:.92rem;color:var(--muted)}.navlinks a{color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:34px;align-items:center;padding:70px 0 56px}.eyebrow{color:var(--cyan);font-size:.78rem;letter-spacing:.2em;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(2.6rem,6vw,5.2rem);line-height:.98;letter-spacing:-.055em;margin:16px 0}.hero h1 span{color:var(--cyan)}.lead{font-size:1.08rem;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{border:1px solid #31516b;background:transparent;color:var(--text);padding:11px 17px;border-radius:12px;font-weight:750;cursor:pointer;font:inherit;font-size:.95rem}.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#06202b}.btn:hover{filter:brightness(1.08);text-decoration:none}.hero-card{border:1px solid var(--line);background:linear-gradient(145deg,#122b40,#0a1625 75%);border-radius:24px;padding:22px;box-shadow:0 25px 70px #0005}.road{height:245px;border-radius:18px;background:linear-gradient(90deg,#102032,#18283a 48%,#102032);position:relative;overflow:hidden;border:1px solid #29435b}.road:before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:3px dashed #5d7082;opacity:.75}.beam{position:absolute;bottom:28px;left:18%;width:64%;height:105px;background:linear-gradient(90deg,#67e8f944,#67e8f900);clip-path:polygon(0 28%,100% 0,100% 100%,0 72%);transition:opacity .25s}.car{position:absolute;bottom:20px;left:10%;font-size:2.5rem;filter:drop-shadow(0 0 15px #67e8f9aa)}.approaching{position:absolute;right:10%;top:25px;font-size:2rem;transition:opacity .2s}.mini-label{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.83rem;margin-top:14px}.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:7px}.section{padding:54px 0}.section-head{max-width:720px;margin-bottom:24px}.section h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;margin:8px 0 12px;letter-spacing:-.035em}.muted{color:var(--muted)}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#102238,#0a1624);border:1px solid var(--line);border-radius:18px;padding:22px}.card-icon{font-size:1.6rem;color:var(--cyan)}.card h3{margin:8px 0}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border:1px solid var(--line);background:#0b1928;border-radius:16px;padding:18px}.number{color:var(--cyan);font-weight:900;font-size:1.4rem}.sim-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.sim-box{background:#0c1a2a;border:1px solid var(--line);border-radius:20px;padding:22px}.switch-row{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.state{border-radius:12px;background:#132b40;padding:16px;margin-top:15px}.state strong{font-size:1.35rem;display:block}.pill{display:inline-block;border:1px solid #2c526b;border-radius:999px;padding:4px 10px;font-size:.78rem;color:var(--cyan)}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.photo{min-height:175px;border:1px dashed #426078;background:#0c1b2b;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:var(--muted)}.photo img{max-width:100%;max-height:240px;object-fit:contain;border-radius:10px}.notice{border-left:3px solid var(--amber);background:#2a2414;padding:15px 17px;border-radius:0 12px 12px 0;color:#f8e6b3}.faq details{border-bottom:1px solid var(--line);padding:14px 0}.faq summary{cursor:pointer;font-weight:750}.footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.9rem}.small{font-size:.84rem;color:var(--muted)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:45px}.grid3,.steps,.photo-grid{grid-template-columns:1fr 1fr}.sim-layout,.two-col{grid-template-columns:1fr}.nav{align-items:flex-start}.navlinks{gap:10px;justify-content:flex-end}.hero-card{max-width:600px;width:100%;margin:auto}}
+    @media(max-width:500px){.nav{display:block}.navlinks{justify-content:flex-start;margin-top:12px}.grid3,.steps,.photo-grid{grid-template-columns:1fr}.hero h1{font-size:3.15rem}.road{height:200px}}
+  </style>
+</head>
+<body>
+<header class="wrap">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home"><span class="logo">DG</span><span>DIPPERGUARD</span></a>
+    <div class="navlinks"><a href="#about">About</a><a href="#simulation">Simulation</a><a href="#gallery">Gallery</a><a href="#safety">Safety</a></div>
+  </nav>
+</header>
+<main class="wrap">
+  <section class="hero" id="home">
+    <div>
+      <div class="eyebrow">Student innovation · Road safety</div>
+      <h1>Smarter lights.<br><span>Safer roads.</span></h1>
+      <p class="lead">DIPPERGUARD is a student-built automatic headlight dipper project designed to demonstrate how bright approaching headlights can trigger a switch from high beam to low beam in a model setup.</p>
+      <div class="actions"><a class="btn primary" href="#simulation">Explore the simulation ↗</a><a class="btn" href="#about">Discover the project</a></div>
+      <p class="small">Digital showcase of a physical prototype · No hardware connection is used by this website.</p>
+    </div>
+    <div class="hero-card">
+      <div class="road" aria-label="Illustration of a road and headlight beam">
+        <div class="beam" id="heroBeam"></div><div class="car">🚘</div><div class="approaching" id="heroOther" style="opacity:.15">🚙</div>
+      </div>
+      <div class="mini-label"><span><span class="status-dot"></span><span id="heroRoad">Road clear · Demo</span></span><span id="heroMode">HIGH BEAM</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head"><div class="eyebrow">01 / The idea</div><h2>A simple concept with a meaningful purpose.</h2><p class="muted">Bright high-beam headlights can make it harder for an oncoming driver to see clearly. An automatic dipper concept aims to reduce glare by changing to low beam when an approaching vehicle is detected.</p></div>
+    <div class="grid3">
+      <article class="card"><div class="card-icon">◉</div><h3>Detect</h3><p class="muted">The existing prototype uses a light-dependent resistor (LDR) circuit to respond to changes in light intensity.</p></article>
+      <article class="card"><div class="card-icon">⌁</div><h3>Decide</h3><p class="muted">The circuit's threshold and switching arrangement determine when the model changes its lighting state.</p></article>
+      <article class="card"><div class="card-icon">✧</div><h3>Dip</h3><p class="muted">The model demonstrates a change between high-beam and low-beam light outputs.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="simulation">
+    <div class="section-head"><div class="eyebrow">02 / Interactive demo</div><h2>Try the dipper simulation.</h2><p class="muted">Use the controls to show how the concept is intended to behave. This is a software-only demonstration; it does not read or control your real model.</p></div>
+    <div class="sim-layout">
+      <div class="sim-box">
+        <div class="road" style="height:220px"><div class="beam" id="simBeam"></div><div class="car">🚘</div><div class="approaching" id="simOther" style="opacity:.15">🚙</div></div>
+        <div class="mini-label"><span id="roadStatus">Road clear</span><span class="pill">SIMULATION</span></div>
+      </div>
+      <div class="sim-box">
+        <h3>Scenario controls</h3><p class="muted">Choose a situation to update the demo display.</p>
+        <div class="switch-row"><button class="btn primary" id="approachBtn">Simulate approaching vehicle</button><button class="btn" id="clearBtn">Clear road</button></div>
+        <div class="state"><span class="small">SIMULATED BEAM STATE</span><strong id="beamState">HIGH BEAM</strong><span class="small" id="beamExplanation">No approaching vehicle selected.</span></div>
+        <p class="small">For demonstration only. Real-world detection needs proper engineering, testing and vehicle-compatible equipment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="workflow">
+    <div class="section-head"><div class="eyebrow">03 / Working principle</div><h2>How the model demonstrates the idea.</h2></div>
+    <div class="steps">
+      <div class="step"><div class="number">01</div><h3>Light falls on LDR</h3><p class="muted">The sensor's electrical resistance changes with light intensity.</p></div>
+      <div class="step"><div class="number">02</div><h3>Circuit responds</h3><p class="muted">The sensor circuit compares the signal against its set threshold.</p></div>
+      <div class="step"><div class="number">03</div><h3>Switching occurs</h3><p class="muted">The circuit activates its switching stage when its trigger condition is met.</p></div>
+      <div class="step"><div class="number">04</div><h3>Beam state changes</h3><p class="muted">The model illustrates the intended high-beam/low-beam response.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="section-head"><div class="eyebrow">04 / Project gallery</div><h2>The prototype behind the concept.</h2><p class="muted">Replace these placeholders with the photographs of your own model. Add your image files to the <code>assets</code> folder and update the image names in this section of index.html.</p></div>
+    <div class="photo-grid">
+      <div class="photo"><div><strong>Photo 1 · Front view</strong><br><span class="small">Add: assets/front.jpg</span></div></div>
+      <div class="photo"><div><strong>Photo 2 · Circuit view</strong><br><span class="small">Add: assets/circuit.jpg</span></div></div>
+      <div class="photo"><div><strong>Photo 3 · Side view</strong><br><span class="small">Add: assets/side.jpg</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="safety">
+    <div class="section-head"><div class="eyebrow">05 / Honest engineering</div><h2>Prototype today. Further research tomorrow.</h2></div>
+    <div class="two-col">
+      <div class="card"><h3>What this project shows</h3><p class="muted">A low-voltage educational model of light sensing and automatic switching, supported by a website and interactive software simulation.</p></div>
+      <div class="card"><h3>What it does not claim</h3><p class="muted">This website does not measure live sensor data, detect actual vehicles, use AI, or control a road vehicle. The simulation is not a safety-certified driving system.</p></div>
+    </div>
+    <div class="notice" style="margin-top:16px"><strong>Safety note:</strong> Keep the physical project as a low-voltage demonstration. Do not connect this prototype to a real vehicle's headlight wiring.</div>
+  </section>
+
+  <section class="section faq">
+    <div class="section-head"><div class="eyebrow">06 / FAQ</div><h2>Frequently asked questions</h2></div>
+    <details><summary>Does this website connect to my actual model?</summary><p class="muted">No. It is a standalone digital showcase and simulation. Your existing hardware stays unchanged.</p></details>
+    <details><summary>Will it work on a mobile phone?</summary><p class="muted">Yes. The layout adapts to phone screens. On supported browsers, you can also install it as a web app after it is hosted over HTTPS.</p></details>
+    <details><summary>Is hosting free?</summary><p class="muted">The site is designed for free static hosting, such as GitHub Pages on a public repository. A custom domain is optional and not included.</p></details>
+    <details><summary>Is the simulation AI?</summary><p class="muted">No. It is a rule-based JavaScript simulation. It is best presented honestly as an interactive demonstration, not as AI or live vehicle detection.</p></details>
+  </section>
+</main>
+<footer class="footer"><div class="wrap"><div class="brand"><span class="logo">DG</span><span>DIPPERGUARD</span></div><p>Student project · Automatic headlight dipper concept</p><p class="small">Built with HTML, CSS and JavaScript. Designed for free static hosting. No paid APIs or external libraries required.</p></div></footer>
+<script>
+  const approachBtn=document.getElementById('approachBtn'), clearBtn=document.getElementById('clearBtn');
+  const beamState=document.getElementById('beamState'), beamExplanation=document.getElementById('beamExplanation');
+  const roadStatus=document.getElementById('roadStatus'), simOther=document.getElementById('simOther'), simBeam=document.getElementById('simBeam');
+  const heroOther=document.getElementById('heroOther'), heroBeam=document.getElementById('heroBeam'), heroRoad=document.getElementById('heroRoad'), heroMode=document.getElementById('heroMode');
+  function setScenario(approaching){
+    beamState.textContent=approaching?'LOW BEAM':'HIGH BEAM';
+    beamExplanation.textContent=approaching?'Approaching vehicle selected: simulated dipper response.':'No approaching vehicle selected.';
+    roadStatus.textContent=approaching?'Vehicle approaching · Demo':'Road clear · Demo';
+    simOther.style.opacity=approaching?'1':'.15'; heroOther.style.opacity=approaching?'1':'.15';
+    simBeam.style.opacity=approaching?'.2':'1'; heroBeam.style.opacity=approaching?'.2':'1';
+    heroRoad.textContent=approaching?'Vehicle approaching · Demo':'Road clear · Demo';
+    heroMode.textContent=approaching?'LOW BEAM':'HIGH BEAM';
+    approachBtn.classList.toggle('primary',!approaching); clearBtn.classList.toggle('primary',approaching);
+  }
+  approachBtn.addEventListener('click',()=>setScenario(true));
+  clearBtn.addEventListener('click',()=>setScenario(false));
+  if('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+  }
+</script>
+</body>
+</html>
